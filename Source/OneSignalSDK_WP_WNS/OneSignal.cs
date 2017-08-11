@@ -34,7 +34,7 @@ namespace OneSignalSDK_WP_WNS {
       private static bool initDone = false;
       private static bool foreground = true;
 
-      public delegate void NotificationReceived(string message, IDictionary<string, string> additionalData, bool isActive);
+      public delegate void NotificationReceived(string message, IDictionary<string, object> additionalData, bool isActive);
       public static NotificationReceived notificationDelegate = null;
 
       public delegate void IdsAvailable(string playerID, string pushToken);
@@ -275,10 +275,10 @@ namespace OneSignalSDK_WP_WNS {
 
          if (notificationDelegate != null) {
             var additionalDataJToken = jObject["custom"]["a"];
-            IDictionary<string, string> additionalData = null;
+            IDictionary<string, object> additionalData = null;
 
             if (additionalDataJToken != null)
-               additionalData = additionalDataJToken.ToObject<Dictionary<string, string>>();
+               additionalData = additionalDataJToken.ToObject<Dictionary<string, object>>();
 
             notificationDelegate(message, additionalData, initDone);
          }

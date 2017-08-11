@@ -107,7 +107,7 @@ namespace OneSignalExampleWP8._1
             Window.Current.Activate();
         }
 
-        private void notificationOpened(string message, IDictionary<string, string> additionalData, bool isActive) {
+        private void notificationOpened(string message, IDictionary<string, object> additionalData, bool isActive) {
            System.Diagnostics.Debug.WriteLine("notificationOpened:message:" + message);
            System.Diagnostics.Debug.WriteLine("notificationOpened:additionalData:" + additionalData);
            System.Diagnostics.Debug.WriteLine("notificationOpened:isActive:" + isActive);
